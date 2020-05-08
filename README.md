@@ -1,5 +1,9 @@
 # Prueba-TiendaColdlt
 
+Base de datos: SQL Server
+Backend: .Net C#
+Frontend: Angular 7
+
 # Carpeta principal
 ![image](https://user-images.githubusercontent.com/48740752/81419495-ee801900-9113-11ea-825d-b60ed79b9302.png)
 
