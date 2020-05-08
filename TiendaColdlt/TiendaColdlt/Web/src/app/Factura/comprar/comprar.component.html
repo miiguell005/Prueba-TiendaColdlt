@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h2>{{titulo}}</h2>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <label class="col-md-3" for="filtro">Filtro</label>
+      <div class="col-md-9">
+        <input type="text" class="form-control" [(ngModel)]="filtroProductos"
+          (ngModelChange)="filtrarProductos(filtroProductos)" placeholder="Buscar producto" name="Filtro" id="Filtro">
+      </div>
+    </div>
+    <div class="scroll-productos">
+      <div class="row scroll-margen-productos">
+        <div class="text-center mi-producto" *ngFor="let p of listaProductos" (click)="agregarProducto(p)">
+
+          <strong class="card-title">{{p.Nombre}}</strong><br>
+          <span class="card-text">{{p.Codigo}}</span><br>
+          <span class="card-text">{{p.Valor | currency}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <label class="col-md-3" for="cliente">Cliente</label>
+          <div class="col-md-9">
+            <input type="text" class="form-control" [(ngModel)]="factura.Cliente" placeholder="Nombre del cliente"
+              id="cliente">
+            <span class="mensaje-error" *ngIf="!factura?.Cliente && botnGuardarOprimido">
+              Ingrese el nombre del cliente
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 scroll-tabla" >
+        <br>
+        <table class="table table-bordered">
+          <tr class="table-active">
+            <th></th>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Valor</th>
+            <th>Total</th>
+          </tr>
+          <ng-container *ngIf="factura">
+            <tr *ngFor="let i of factura.Items">
+              <td>
+                <button class="btn btn-sm btn-primary" (click)="eliminarProducto(i.Producto)">
+                  <i class="fa fa-trash"></i>
+                </button>
+
+              </td>
+              <td>{{i.Producto.Nombre}}</td>
+              <td>{{i.Cantidad}}</td>
+              <td>{{i.Producto.Valor| currency}}</td>
+              <td>{{i.ValorTotal | currency}}</td>
+            </tr>
+          </ng-container>
+        </table>
+      </div>
+
+      <div class="col-md-12 text-center" *ngIf="factura && factura.ValorTotal">
+        <h2> Total: {{factura.ValorTotal | currency}}</h2>
+        <button class="btn btn-sm btn-primary" (click)="crearFactura();">Comprar</button>
+      </div>
+    </div>
+  </div>
+</div>

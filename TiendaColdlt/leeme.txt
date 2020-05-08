@@ -1,0 +1,8 @@
+
+Base de datos: Sql Server (se deja el script del esquema y registros).
+Arquitectura: MVVM.
+
+Backend: C#, entityframework, api rest full, linQ (Es necesario ejecutar el backend para levantar los servicios).
+
+Frontend: desarrollado en angular 7. 
+(se deja un archivo .bat con el siguiente nombre 'iniciarFrontEnd.bat', con el fin de ejecutar el frontend, despues de que ya esté cargado ir al navedaro y buscar la siguiente página http://localhost:4200).

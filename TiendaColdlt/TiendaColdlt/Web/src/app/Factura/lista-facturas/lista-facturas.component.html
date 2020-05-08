@@ -1,0 +1,48 @@
+<div class="col-md-12">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2>{{titulo}}</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive-sm">
+        <table class="table table-bordered table-hover table-sm">
+          <tbody>
+            <tr class="table-secondary">
+              <th>Id</th>
+              <th>Cliente</th>
+              <th>Valor total</th>
+              <th>Detalle</th>
+            </tr>
+            <tr *ngFor="let f of facturas">
+              <td>{{f.IdFactura}}</td>
+              <td>{{f.Cliente}}</td>
+              <td>{{f.ValorTotal | currency}}</td>
+              <td>
+                <table class="table table-bordered table-hover table-sm">
+                  <tbody>
+                    <tr class="table-secondary">
+                      <td>Producto</td>
+                      <td>Cantidad</td>
+                      <td>Valor</td>
+                      <td>Total</td>
+                    </tr>
+                    <tr *ngFor="let i of f.Items">
+                      <td>{{i.Producto.Nombre}}</td>
+                      <td>{{i.Cantidad}}</td>
+                      <td>{{i.Producto.Valor | currency}}</td>
+                      <td>{{i.ValorTotal | currency}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <app-modals></app-modals>
+  <app-modal-confirmacion></app-modal-confirmacion>
+</div>

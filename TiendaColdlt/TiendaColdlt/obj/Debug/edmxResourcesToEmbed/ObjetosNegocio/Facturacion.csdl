@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ColdltModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Factura">
+    <Key>
+      <PropertyRef Name="IdFactura" />
+    </Key>
+    <Property Name="IdFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ValorTotal" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Items" Relationship="Self.FK_Item_Factura" FromRole="Factura" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="IdItem" />
+    </Key>
+    <Property Name="IdItem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdProducto" Type="Int32" Nullable="false" />
+    <Property Name="IdFactura" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="ValorTotal" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Factura" Relationship="Self.FK_Item_Factura" FromRole="Item" ToRole="Factura" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK_Item_Producto" FromRole="Item" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="IdProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Codigo" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Valor" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Items" Relationship="Self.FK_Item_Producto" FromRole="Producto" ToRole="Item" />
+  </EntityType>
+  <Association Name="FK_Item_Factura">
+    <End Role="Factura" Type="ColdltModel.Factura" Multiplicity="1" />
+    <End Role="Item" Type="ColdltModel.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factura">
+        <PropertyRef Name="IdFactura" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="IdFactura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Item_Producto">
+    <End Role="Producto" Type="ColdltModel.Producto" Multiplicity="1" />
+    <End Role="Item" Type="ColdltModel.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="IdProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ColdltEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Factura" EntityType="ColdltModel.Factura" />
+    <EntitySet Name="Item" EntityType="ColdltModel.Item" />
+    <EntitySet Name="Producto" EntityType="ColdltModel.Producto" />
+    <AssociationSet Name="FK_Item_Factura" Association="Self.FK_Item_Factura">
+      <End Role="Factura" EntitySet="Factura" />
+      <End Role="Item" EntitySet="Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Item_Producto" Association="Self.FK_Item_Producto">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Item" EntitySet="Item" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

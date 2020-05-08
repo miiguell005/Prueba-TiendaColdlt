@@ -1,0 +1,12 @@
+<ng-template #modalConfirmacion let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{titulo}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="closeModal(false)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>  
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="closeModal(true)">Aceptar</button>
+    <button type="button" class="btn btn-outline-dark" (click)="closeModal(false)">Cancelar</button>
+  </div>
+</ng-template>

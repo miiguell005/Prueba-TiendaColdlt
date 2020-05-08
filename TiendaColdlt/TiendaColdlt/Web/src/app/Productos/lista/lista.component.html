@@ -1,0 +1,64 @@
+<div class="col-md-12">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2>{{titulo}}</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="col-md-12">
+        <button class="btn btn-primary" (click)="crearProducto()"><i class="fa fa-plus"></i></button>
+      </div>
+      <div class="row">
+        <form class="col-md-12 form-inline" action="/action_page.php">
+          <label for="email">Nombre: </label>
+          <input type="text" class="form-control" [(ngModel)]="filtro.nombre"
+            (ngModelChange)="filtrarProductos(filtroProductos)" placeholder="Buscar producto por nombre" name="nombre"
+            id="nombre">
+          <label for="email">Código: </label>
+          <input type="text" class="form-control" [(ngModel)]="filtro.codigo"
+            (ngModelChange)="filtrarProductos(filtroProductos)" placeholder="Buscar producto por código" name="codigo"
+            id="codigo">
+
+          <button type="submit" class="btn btn-sm btn-primary" (click)="ngOnInit()"><i class="fa fa-search"></i>
+            Buscar</button>
+
+        </form>
+        <div class="col-md-12 text-center">
+
+        </div>
+      </div>
+      <div class="table-responsive-sm">
+        <table class="table table-bordered table-hover table-sm">
+          <tbody>
+            <tr class="table-secondary">
+              <th></th>
+              <th>Nombre</th>
+              <th>Código</th>
+              <th>Valor</th>
+            </tr>
+            <tr *ngFor="let p of productos">
+              <td>
+                <button class="btn btn-sm btn-primary" (click)="editarProducto(p)"><i
+                    class="fa fa-pencil-square-o"></i></button>
+                <button class="btn btn-sm btn-primary" (click)="EliminarProducto(p)"><i
+                    class="fa fa-trash"></i></button>
+              </td>
+              <td>{{p.Nombre}}</td>
+              <td>{{p.Codigo}}</td>
+              <td>{{p.Valor | currency}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <ngb-pagination class="d-flex justify-content-center" size="sm" [(page)]="filtro.Pagina" [disabled]='cargando'
+          [pageSize]="filtro.Cantidad" [collectionSize]="cantidadProductos" (pageChange)="a()">
+        </ngb-pagination>
+      </div>
+    </div>
+  </div>
+  <app-modals></app-modals>
+  <app-modal-confirmacion></app-modal-confirmacion>
+</div>

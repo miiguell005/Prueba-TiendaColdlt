@@ -1,0 +1,605 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2F1FB1F8-7E55-4AF1-AB87-FE0F6AB4B840}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TiendaColdlt</RootNamespace>
+    <AssemblyName>TiendaColdlt</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.4\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\TiendaColdlt.dll" />
+    <Content Include="bin\TiendaColdlt.pdb" />
+    <Content Include="Global.asax" />
+    <Content Include="ObjetosNegocio\Facturacion.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Facturacion.Context.cs</LastGenOutput>
+      <DependentUpon>Facturacion.edmx</DependentUpon>
+    </Content>
+    <Content Include="ObjetosNegocio\Facturacion.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Facturacion.edmx</DependentUpon>
+      <LastGenOutput>Facturacion.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\FacturasController.cs" />
+    <Compile Include="Controllers\ProductosController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Negocio\Facturas\FacturasModulo.cs" />
+    <Compile Include="Negocio\Productos\FiltroProductosDto.cs" />
+    <Compile Include="Negocio\Productos\ProductosModulo.cs" />
+    <Compile Include="ObjetosNegocio\Factura.cs">
+      <DependentUpon>Facturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ObjetosNegocio\Facturacion.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Facturacion.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ObjetosNegocio\Facturacion.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Facturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ObjetosNegocio\Facturacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Facturacion.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ObjetosNegocio\Item.cs">
+      <DependentUpon>Facturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ObjetosNegocio\Producto.cs">
+      <DependentUpon>Facturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="ObjetosNegocio\Facturacion.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Facturacion.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ObjetosNegocio\Facturacion.edmx.diagram">
+      <DependentUpon>Facturacion.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="Web\.editorconfig" />
+    <Content Include="Web\.gitignore" />
+    <Content Include="Web\angular.json" />
+    <Content Include="Web\e2e\protractor.conf.js" />
+    <Content Include="Web\node_modules\.bin\sha.js" />
+    <Content Include="Web\node_modules\zone.js\dist\async-test.js" />
+    <Content Include="Web\node_modules\zone.js\dist\fake-async-test.js" />
+    <Content Include="Web\node_modules\zone.js\dist\jasmine-patch.js" />
+    <Content Include="Web\node_modules\zone.js\dist\jasmine-patch.min.js" />
+    <Content Include="Web\node_modules\zone.js\dist\long-stack-trace-zone.js" />
+    <Content Include="Web\node_modules\zone.js\dist\long-stack-trace-zone.min.js" />
+    <Content Include="Web\node_modules\zone.js\dist\mocha-patch.js" />
+    <Content Include="Web\node_modules\zone.js\dist\mocha-patch.min.js" />
+    <Content Include="Web\node_modules\zone.js\dist\proxy.js" />
+    <Content Include="Web\node_modules\zone.js\dist\proxy.min.js" />
+    <Content Include="Web\node_modules\zone.js\dist\sync-test.js" />
+    <Content Include="Web\node_modules\zone.js\dist\task-tracking.js" />
+    <Content Include="Web\node_modules\zone.js\dist\task-tracking.min.js" />
+    <Content Include="Web\node_modules\zone.js\dist\webapis-media-query.js" />
+    <Content Include="Web\node_modules\zone.js\dist\webapis-media-query.min.js" />
+    <Content Include="Web\node_modules\zone.js\dist\webapis-notification.js" />
+    <Content Include="Web\node_modules\zone.js\dist\webapis-notification.min.js" />
+    <Content Include="Web\node_modules\zone.js\dist\webapis-rtc-peer-connection.js" />
+    <Content Include="Web\node_modules\zone.js\dist\webapis-rtc-peer-connection.min.js" />
+    <Content Include="Web\node_modules\zone.js\dist\webapis-shadydom.js" />
+    <Content Include="Web\node_modules\zone.js\dist\webapis-shadydom.min.js" />
+    <Content Include="Web\node_modules\zone.js\dist\wtf.js" />
+    <Content Include="Web\node_modules\zone.js\dist\wtf.min.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-bluebird.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-bluebird.min.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-error.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-error.min.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-mix.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-node.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-patch-cordova.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-patch-cordova.min.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-patch-electron.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-patch-electron.min.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-patch-jsonp.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-patch-jsonp.min.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-patch-promise-test.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-patch-promise-test.min.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-patch-resize-observer.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-patch-resize-observer.min.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-patch-rxjs-fake-async.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-patch-rxjs-fake-async.min.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-patch-rxjs.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-patch-rxjs.min.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-patch-socket-io.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-patch-socket-io.min.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-patch-user-media.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-patch-user-media.min.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-testing-bundle.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-testing-node-bundle.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone-testing.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone.min.js" />
+    <Content Include="Web\node_modules\zone.js\dist\zone_externs.js" />
+    <Content Include="Web\node_modules\zone.js\lib\closure\zone_externs.js" />
+    <Content Include="Web\package-lock.json" />
+    <Content Include="Web\package.json" />
+    <Content Include="Web\src\app\app.component.css" />
+    <Content Include="Web\src\app\app.component.html" />
+    <Content Include="Web\src\app\components\footer\footer.component.css" />
+    <Content Include="Web\src\app\components\footer\footer.component.html" />
+    <Content Include="Web\src\app\components\modal-confirmacion\modal-confirmacion.component.css" />
+    <Content Include="Web\src\app\components\modal-confirmacion\modal-confirmacion.component.html" />
+    <Content Include="Web\src\app\components\modals\modals.component.css" />
+    <Content Include="Web\src\app\components\modals\modals.component.html" />
+    <Content Include="Web\src\app\components\navbar\navbar.component.css" />
+    <Content Include="Web\src\app\components\navbar\navbar.component.html" />
+    <Content Include="Web\src\app\components\sidebar\sidebar.component.css" />
+    <Content Include="Web\src\app\components\sidebar\sidebar.component.html" />
+    <Content Include="Web\src\app\Factura\comprar\comprar.component.css" />
+    <Content Include="Web\src\app\Factura\comprar\comprar.component.html" />
+    <Content Include="Web\src\app\Factura\lista-facturas\lista-facturas.component.css" />
+    <Content Include="Web\src\app\Factura\lista-facturas\lista-facturas.component.html" />
+    <Content Include="Web\src\app\layouts\admin-layout\admin-layout.component.html" />
+    <Content Include="Web\src\app\layouts\admin-layout\admin-layout.routing.js" />
+    <Content Include="Web\src\app\Productos\lista\lista.component.css" />
+    <Content Include="Web\src\app\Productos\lista\lista.component.html" />
+    <Content Include="Web\src\assets\demo\demo.css" />
+    <Content Include="Web\src\assets\img\angular2-logo-red.png" />
+    <Content Include="Web\src\assets\img\angular2-logo-white.png" />
+    <Content Include="Web\src\assets\img\apple-icon.png" />
+    <Content Include="Web\src\assets\img\bg5.jpg" />
+    <Content Include="Web\src\assets\img\favicon.png" />
+    <Content Include="Web\src\assets\img\header.jpg" />
+    <Content Include="Web\src\assets\img\mike.jpg" />
+    <Content Include="Web\src\assets\img\now-logo.png" />
+    <Content Include="Web\src\favicon.ico" />
+    <Content Include="Web\src\Imagenes\images.jpg" />
+    <Content Include="Web\src\index.html" />
+    <Content Include="Web\src\karma.conf.js" />
+    <Content Include="Web\src\main.js" />
+    <Content Include="Web\src\styles.css" />
+    <Content Include="Web\tsconfig.json" />
+    <Content Include="Web\tslint.json" />
+    <Content Include="Web\src\assets\.gitkeep" />
+    <Content Include="Web\src\assets\fonts\nucleo-outline.eot" />
+    <Content Include="Web\src\assets\fonts\nucleo-outline.ttf" />
+    <Content Include="Web\src\assets\fonts\nucleo-outline.woff" />
+    <Content Include="Web\src\assets\fonts\nucleo-outline.woff2" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\cards\_card-chart.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\cards\_card-map.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\cards\_card-plain.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\cards\_card-user.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\mixins\_buttons.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\mixins\_cards.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\mixins\_dropdown.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\mixins\_inputs.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\mixins\_page-header.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\mixins\_transparency.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\mixins\_vendor-prefixes.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\plugins\_plugin-animate-bootstrap-notify.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\plugins\_plugin-perfect-scrollbar.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\_alerts.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\_buttons.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\_cards.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\_checkboxes-radio.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\_dropdown.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\_fixed-plugin.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\_footers.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\_images.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\_inputs.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\_misc.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\_mixins.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\_navbar.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\_nucleo-outline.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\_page-header.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\_responsive.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\_sidebar-and-main-panel.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\_tables.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\_typography.scss" />
+    <Content Include="Web\src\assets\scss\now-ui-dashboard\_variables.scss" />
+    <Content Include="Web\src\browserslist" />
+    <Content Include="Web\src\main.js.map" />
+    <Content Include="Web\src\tsconfig.app.json" />
+    <Content Include="Web\src\tsconfig.spec.json" />
+    <Content Include="Web\src\tslint.json" />
+    <Content Include="Web\src\app\layouts\admin-layout\admin-layout.component.scss" />
+    <Content Include="Web\src\app\layouts\admin-layout\admin-layout.routing.js.map" />
+    <Content Include="Web\e2e\tsconfig.e2e.json" />
+    <Content Include="Web\node_modules\.bin\acorn" />
+    <Content Include="Web\node_modules\.bin\acorn.cmd" />
+    <Content Include="Web\node_modules\.bin\ansi-html" />
+    <Content Include="Web\node_modules\.bin\ansi-html.cmd" />
+    <Content Include="Web\node_modules\.bin\atob" />
+    <Content Include="Web\node_modules\.bin\atob.cmd" />
+    <Content Include="Web\node_modules\.bin\autoprefixer" />
+    <Content Include="Web\node_modules\.bin\autoprefixer.cmd" />
+    <Content Include="Web\node_modules\.bin\babylon" />
+    <Content Include="Web\node_modules\.bin\babylon.cmd" />
+    <Content Include="Web\node_modules\.bin\blocking-proxy" />
+    <Content Include="Web\node_modules\.bin\blocking-proxy.cmd" />
+    <Content Include="Web\node_modules\.bin\browser-pack" />
+    <Content Include="Web\node_modules\.bin\browser-pack.cmd" />
+    <Content Include="Web\node_modules\.bin\browserify" />
+    <Content Include="Web\node_modules\.bin\browserify.cmd" />
+    <Content Include="Web\node_modules\.bin\browserslist" />
+    <Content Include="Web\node_modules\.bin\browserslist.cmd" />
+    <Content Include="Web\node_modules\.bin\buble" />
+    <Content Include="Web\node_modules\.bin\buble.cmd" />
+    <Content Include="Web\node_modules\.bin\build-optimizer" />
+    <Content Include="Web\node_modules\.bin\build-optimizer.cmd" />
+    <Content Include="Web\node_modules\.bin\cssesc" />
+    <Content Include="Web\node_modules\.bin\cssesc.cmd" />
+    <Content Include="Web\node_modules\.bin\decompress-zip" />
+    <Content Include="Web\node_modules\.bin\decompress-zip.cmd" />
+    <Content Include="Web\node_modules\.bin\deps-sort" />
+    <Content Include="Web\node_modules\.bin\deps-sort.cmd" />
+    <Content Include="Web\node_modules\.bin\errno" />
+    <Content Include="Web\node_modules\.bin\errno.cmd" />
+    <Content Include="Web\node_modules\.bin\esparse" />
+    <Content Include="Web\node_modules\.bin\esparse.cmd" />
+    <Content Include="Web\node_modules\.bin\esvalidate" />
+    <Content Include="Web\node_modules\.bin\esvalidate.cmd" />
+    <Content Include="Web\node_modules\.bin\flat" />
+    <Content Include="Web\node_modules\.bin\flat.cmd" />
+    <Content Include="Web\node_modules\.bin\he" />
+    <Content Include="Web\node_modules\.bin\he.cmd" />
+    <Content Include="Web\node_modules\.bin\image-size" />
+    <Content Include="Web\node_modules\.bin\image-size.cmd" />
+    <Content Include="Web\node_modules\.bin\import-local-fixture" />
+    <Content Include="Web\node_modules\.bin\import-local-fixture.cmd" />
+    <Content Include="Web\node_modules\.bin\in-install" />
+    <Content Include="Web\node_modules\.bin\in-install.cmd" />
+    <Content Include="Web\node_modules\.bin\in-publish" />
+    <Content Include="Web\node_modules\.bin\in-publish.cmd" />
+    <Content Include="Web\node_modules\.bin\insert-module-globals" />
+    <Content Include="Web\node_modules\.bin\insert-module-globals.cmd" />
+    <Content Include="Web\node_modules\.bin\ivy-ngcc" />
+    <Content Include="Web\node_modules\.bin\ivy-ngcc.cmd" />
+    <Content Include="Web\node_modules\.bin\jasmine" />
+    <Content Include="Web\node_modules\.bin\jasmine.cmd" />
+    <Content Include="Web\node_modules\.bin\js-yaml" />
+    <Content Include="Web\node_modules\.bin\js-yaml.cmd" />
+    <Content Include="Web\node_modules\.bin\jsesc" />
+    <Content Include="Web\node_modules\.bin\jsesc.cmd" />
+    <Content Include="Web\node_modules\.bin\json5" />
+    <Content Include="Web\node_modules\.bin\json5.cmd" />
+    <Content Include="Web\node_modules\.bin\JSONStream" />
+    <Content Include="Web\node_modules\.bin\JSONStream.cmd" />
+    <Content Include="Web\node_modules\.bin\karma" />
+    <Content Include="Web\node_modules\.bin\karma.cmd" />
+    <Content Include="Web\node_modules\.bin\lessc" />
+    <Content Include="Web\node_modules\.bin\lessc.cmd" />
+    <Content Include="Web\node_modules\.bin\loose-envify" />
+    <Content Include="Web\node_modules\.bin\loose-envify.cmd" />
+    <Content Include="Web\node_modules\.bin\miller-rabin" />
+    <Content Include="Web\node_modules\.bin\miller-rabin.cmd" />
+    <Content Include="Web\node_modules\.bin\mime" />
+    <Content Include="Web\node_modules\.bin\mime.cmd" />
+    <Content Include="Web\node_modules\.bin\mkdirp" />
+    <Content Include="Web\node_modules\.bin\mkdirp.cmd" />
+    <Content Include="Web\node_modules\.bin\mocha" />
+    <Content Include="Web\node_modules\.bin\mocha.cmd" />
+    <Content Include="Web\node_modules\.bin\module-deps" />
+    <Content Include="Web\node_modules\.bin\module-deps.cmd" />
+    <Content Include="Web\node_modules\.bin\multicast-dns" />
+    <Content Include="Web\node_modules\.bin\multicast-dns.cmd" />
+    <Content Include="Web\node_modules\.bin\ng" />
+    <Content Include="Web\node_modules\.bin\ng-xi18n" />
+    <Content Include="Web\node_modules\.bin\ng-xi18n.cmd" />
+    <Content Include="Web\node_modules\.bin\ng.cmd" />
+    <Content Include="Web\node_modules\.bin\ngc" />
+    <Content Include="Web\node_modules\.bin\ngc.cmd" />
+    <Content Include="Web\node_modules\.bin\ngrok" />
+    <Content Include="Web\node_modules\.bin\ngrok.cmd" />
+    <Content Include="Web\node_modules\.bin\node-gyp" />
+    <Content Include="Web\node_modules\.bin\node-gyp.cmd" />
+    <Content Include="Web\node_modules\.bin\node-sass" />
+    <Content Include="Web\node_modules\.bin\node-sass.cmd" />
+    <Content Include="Web\node_modules\.bin\nopt" />
+    <Content Include="Web\node_modules\.bin\nopt.cmd" />
+    <Content Include="Web\node_modules\.bin\not-in-install" />
+    <Content Include="Web\node_modules\.bin\not-in-install.cmd" />
+    <Content Include="Web\node_modules\.bin\not-in-publish" />
+    <Content Include="Web\node_modules\.bin\not-in-publish.cmd" />
+    <Content Include="Web\node_modules\.bin\parser" />
+    <Content Include="Web\node_modules\.bin\parser.cmd" />
+    <Content Include="Web\node_modules\.bin\popper" />
+    <Content Include="Web\node_modules\.bin\popper.cmd" />
+    <Content Include="Web\node_modules\.bin\protractor" />
+    <Content Include="Web\node_modules\.bin\protractor.cmd" />
+    <Content Include="Web\node_modules\.bin\regjsparser" />
+    <Content Include="Web\node_modules\.bin\regjsparser.cmd" />
+    <Content Include="Web\node_modules\.bin\rimraf" />
+    <Content Include="Web\node_modules\.bin\rimraf.cmd" />
+    <Content Include="Web\node_modules\.bin\sassgraph" />
+    <Content Include="Web\node_modules\.bin\sassgraph.cmd" />
+    <Content Include="Web\node_modules\.bin\semver" />
+    <Content Include="Web\node_modules\.bin\semver.cmd" />
+    <Content Include="Web\node_modules\.bin\sha.js.cmd" />
+    <Content Include="Web\node_modules\.bin\shjs" />
+    <Content Include="Web\node_modules\.bin\shjs.cmd" />
+    <Content Include="Web\node_modules\.bin\sshpk-conv" />
+    <Content Include="Web\node_modules\.bin\sshpk-conv.cmd" />
+    <Content Include="Web\node_modules\.bin\sshpk-sign" />
+    <Content Include="Web\node_modules\.bin\sshpk-sign.cmd" />
+    <Content Include="Web\node_modules\.bin\sshpk-verify" />
+    <Content Include="Web\node_modules\.bin\sshpk-verify.cmd" />
+    <Content Include="Web\node_modules\.bin\strip-indent" />
+    <Content Include="Web\node_modules\.bin\strip-indent.cmd" />
+    <Content Include="Web\node_modules\.bin\stylus" />
+    <Content Include="Web\node_modules\.bin\stylus.cmd" />
+    <Content Include="Web\node_modules\.bin\terser" />
+    <Content Include="Web\node_modules\.bin\terser.cmd" />
+    <Content Include="Web\node_modules\.bin\tree-kill" />
+    <Content Include="Web\node_modules\.bin\tree-kill.cmd" />
+    <Content Include="Web\node_modules\.bin\ts-node" />
+    <Content Include="Web\node_modules\.bin\ts-node.cmd" />
+    <Content Include="Web\node_modules\.bin\tsc" />
+    <Content Include="Web\node_modules\.bin\tsc.cmd" />
+    <Content Include="Web\node_modules\.bin\tslint" />
+    <Content Include="Web\node_modules\.bin\tslint.cmd" />
+    <Content Include="Web\node_modules\.bin\tsserver" />
+    <Content Include="Web\node_modules\.bin\tsserver.cmd" />
+    <Content Include="Web\node_modules\.bin\umd" />
+    <Content Include="Web\node_modules\.bin\umd.cmd" />
+    <Content Include="Web\node_modules\.bin\undeclared-identifiers" />
+    <Content Include="Web\node_modules\.bin\undeclared-identifiers.cmd" />
+    <Content Include="Web\node_modules\.bin\uuid" />
+    <Content Include="Web\node_modules\.bin\uuid.cmd" />
+    <Content Include="Web\node_modules\.bin\wd" />
+    <Content Include="Web\node_modules\.bin\wd.cmd" />
+    <Content Include="Web\node_modules\.bin\webdriver-manager" />
+    <Content Include="Web\node_modules\.bin\webdriver-manager.cmd" />
+    <Content Include="Web\node_modules\.bin\webpack" />
+    <Content Include="Web\node_modules\.bin\webpack-dev-server" />
+    <Content Include="Web\node_modules\.bin\webpack-dev-server.cmd" />
+    <Content Include="Web\node_modules\.bin\webpack.cmd" />
+    <Content Include="Web\node_modules\.bin\which" />
+    <Content Include="Web\node_modules\.bin\which.cmd" />
+    <Content Include="Web\node_modules\.bin\_mocha" />
+    <Content Include="Web\node_modules\.bin\_mocha.cmd" />
+    <Content Include="Web\node_modules\zone.js\CHANGELOG.md" />
+    <Content Include="Web\node_modules\zone.js\LICENSE" />
+    <Content Include="Web\node_modules\zone.js\LICENSE.wrapped" />
+    <Content Include="Web\node_modules\zone.js\package.json" />
+    <Content Include="Web\node_modules\zone.js\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Web\e2e\src\app.e2e-spec.ts" />
+    <TypeScriptCompile Include="Web\e2e\src\app.po.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\dist\zone.js.d.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\browser\browser.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\browser\define-property.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\browser\event-target.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\browser\property-descriptor.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\browser\register-element.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\browser\rollup-main.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\browser\rollup-test-main.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\browser\shadydom.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\browser\webapis-media-query.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\browser\webapis-notification.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\browser\webapis-resize-observer.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\browser\webapis-rtc-peer-connection.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\browser\webapis-user-media.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\browser\websocket.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\common\error-rewrite.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\common\events.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\common\fetch.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\common\promise.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\common\timers.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\common\to-string.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\common\utils.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\extra\bluebird.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\extra\cordova.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\extra\electron.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\extra\jsonp.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\extra\socket-io.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\jasmine\jasmine.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\mix\rollup-mix.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\mocha\mocha.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\node\events.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\node\fs.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\node\node.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\node\node_util.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\node\rollup-main.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\node\rollup-test-main.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\rxjs\rxjs-fake-async.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\rxjs\rxjs.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\testing\async-testing.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\testing\fake-async.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\testing\promise-testing.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\testing\zone-testing.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\zone-spec\async-test.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\zone-spec\fake-async-test.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\zone-spec\long-stack-trace.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\zone-spec\proxy.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\zone-spec\sync-test.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\zone-spec\task-tracking.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\zone-spec\wtf.ts" />
+    <TypeScriptCompile Include="Web\node_modules\zone.js\lib\zone.ts" />
+    <TypeScriptCompile Include="Web\src\app\-models\-models.module.ts" />
+    <TypeScriptCompile Include="Web\src\app\app-routing.module.ts" />
+    <TypeScriptCompile Include="Web\src\app\app.component.spec.ts" />
+    <TypeScriptCompile Include="Web\src\app\app.component.ts" />
+    <TypeScriptCompile Include="Web\src\app\app.module.ts" />
+    <TypeScriptCompile Include="Web\src\app\components\components.module.ts" />
+    <TypeScriptCompile Include="Web\src\app\components\footer\footer.component.spec.ts" />
+    <TypeScriptCompile Include="Web\src\app\components\footer\footer.component.ts" />
+    <TypeScriptCompile Include="Web\src\app\components\modal-confirmacion\modal-confirmacion.component.spec.ts" />
+    <TypeScriptCompile Include="Web\src\app\components\modal-confirmacion\modal-confirmacion.component.ts" />
+    <TypeScriptCompile Include="Web\src\app\components\modals\modals.component.spec.ts" />
+    <TypeScriptCompile Include="Web\src\app\components\modals\modals.component.ts" />
+    <TypeScriptCompile Include="Web\src\app\components\navbar\navbar.component.spec.ts" />
+    <TypeScriptCompile Include="Web\src\app\components\navbar\navbar.component.ts" />
+    <TypeScriptCompile Include="Web\src\app\components\sidebar\sidebar.component.spec.ts" />
+    <TypeScriptCompile Include="Web\src\app\components\sidebar\sidebar.component.ts" />
+    <TypeScriptCompile Include="Web\src\app\Factura\comprar\comprar.component.spec.ts" />
+    <TypeScriptCompile Include="Web\src\app\Factura\comprar\comprar.component.ts" />
+    <TypeScriptCompile Include="Web\src\app\Factura\lista-facturas\lista-facturas.component.spec.ts" />
+    <TypeScriptCompile Include="Web\src\app\Factura\lista-facturas\lista-facturas.component.ts" />
+    <TypeScriptCompile Include="Web\src\app\Helper\service.service.spec.ts" />
+    <TypeScriptCompile Include="Web\src\app\Helper\service.service.ts" />
+    <TypeScriptCompile Include="Web\src\app\layouts\admin-layout\admin-layout.component.spec.ts" />
+    <TypeScriptCompile Include="Web\src\app\layouts\admin-layout\admin-layout.component.ts" />
+    <TypeScriptCompile Include="Web\src\app\layouts\admin-layout\admin-layout.module.ts" />
+    <TypeScriptCompile Include="Web\src\app\layouts\admin-layout\admin-layout.routing.ts" />
+    <TypeScriptCompile Include="Web\src\app\Productos\lista\lista.component.spec.ts" />
+    <TypeScriptCompile Include="Web\src\app\Productos\lista\lista.component.ts" />
+    <TypeScriptCompile Include="Web\src\environments\environment.prod.ts" />
+    <TypeScriptCompile Include="Web\src\environments\environment.ts" />
+    <TypeScriptCompile Include="Web\src\main.ts" />
+    <TypeScriptCompile Include="Web\src\polyfills.ts" />
+    <TypeScriptCompile Include="Web\src\test.ts" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62960</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:62960/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

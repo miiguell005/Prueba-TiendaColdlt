@@ -1,0 +1,8 @@
+.mensaje-error {
+    font-size: 11px;
+    color: red;
+}
+
+.p-obligatorio {
+    color: red;
+}
